@@ -23,6 +23,15 @@ public class Superhero {
     this.weaponStrength = (int) (Math.random() * 10 ) + 1;
   }
 
+  public Superhero(){
+    this.name = "No name";
+    this.costume = "a t-shirt";
+    this.weapon = "Fist";
+    this.life = true;
+    this.weaponStrength = 0;
+  }
+
+
 
 
   // TODO #2: Add missing methods.
@@ -30,12 +39,24 @@ public class Superhero {
     this.life = false;
   }
 
+  public int specialAttack(int powerLevel){
+    this.weaponStrength = 1 + (int) (Math.random() * powerLevel);
+    return this.weaponStrength;
+  }
   public String getWeapon(){
      return this.weapon;
   }
 
   public int getWeaponStrength(){
      return this.weaponStrength;
+  }
+
+  public void setWeaponStrength(){
+    this.weaponStrength = 1 + (int) (Math.random() * 10);
+  }
+
+  public void setWeapon(int weaponStrength){
+    this.weaponStrength = weaponStrength;
   }
 
   public static void superHeroFight(Superhero Superhero1, Superhero Superhero2){
@@ -52,6 +73,11 @@ public class Superhero {
     } else {
       System.out.println(Superhero2.name  + " won using " + Superhero2.weapon + " with a strength of " + strength2);
     }
+  }
+
+  public static String placeholderFight(int attack1,int attack2, int special1, int special2, Superhero Superhero1, Superhero Superhero2){
+    return Superhero1.name + " uses his special attack and deals " + (special1 + attack2)
+                      + "l\n" + Superhero2.name + " uses his special attack and deals " + (special2 + attack1);
   }
   
   // TODO #3: Including a toString() method (see 2.7) to help with printing out the Superhero details.
