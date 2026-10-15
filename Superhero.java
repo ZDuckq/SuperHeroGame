@@ -76,8 +76,22 @@ public class Superhero {
   }
 
   public static String placeholderFight(int attack1,int attack2, int special1, int special2, Superhero Superhero1, Superhero Superhero2){
-    return Superhero1.name + " uses his special attack and deals " + (special1 + attack2)
-                      + "l\n" + Superhero2.name + " uses his special attack and deals " + (special2 + attack1);
+    int healthPool = 100;
+    int var1 =  attack1 + special1;
+    int var2 = attack2 + special2;
+    String message = "";
+    String message1 = "";
+    if (var2 > healthPool){
+        Superhero1.loseLife();
+        message = Superhero1.name + " has died!";
+    }
+    if (var1 > healthPool){
+        Superhero2.loseLife();
+        message1 = Superhero2.name + " has died!";
+    }
+    return Superhero1.name + " uses his special attack and deals " + var1 + " " + message1
+                      + "\n" + Superhero2.name + " uses his special attack and deals " + var2 + " " + message;
+
   }
   
   // TODO #3: Including a toString() method (see 2.7) to help with printing out the Superhero details.
